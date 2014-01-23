@@ -1,4 +1,4 @@
-# Videomagasinet prototype
+# Grunt + Assemble base
 
 ## Installing
 
@@ -22,7 +22,7 @@ The you should be ready to run:
 
   grunt dev
 
-2. Open the browser to http://localhost:8000
+l2. Open the browser to http://localhost:8000
 
 ## Developing
 
