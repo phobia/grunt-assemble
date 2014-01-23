@@ -12,7 +12,7 @@
 
 After the prerequisits are in place, go to the root of this project and run
 
-  npm install
+    npm install
 
 The you should be ready to run:
 
@@ -20,9 +20,9 @@ The you should be ready to run:
 
 1. Run the dev task, usually from the project root:
 
-  grunt dev
+    grunt dev
 
-l2. Open the browser to http://localhost:8000
+2. Open the browser to [localhost:8080](http://localhost:8000).
 
 ## Developing
 
