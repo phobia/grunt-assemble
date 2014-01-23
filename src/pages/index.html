@@ -1,1 +1,46 @@
-<h2>Lorem ipsum</h2>
+---
+title: Front page
+---
+
+<h1>{{title}}</h1>
+
+<h2>List of available variables in page templates:</h2>
+
+<table>
+    <thead>
+        <th>Variable</th>
+        <th>Current value</th>
+    </thead>
+    <tbody>
+        <tr>
+            <td><code>\{{basename}}</code></td>
+            <td>{{basename}}</td>
+        </tr>
+        <tr>
+            <td><code>\{{dirname}}</code></td>
+            <td>{{dirname}}</td>
+        </tr>
+        <tr>
+            <td><code>\{{ext}}</code></td>
+            <td>{{ext}}</td>
+        </tr>
+        <tr>
+            <td><code>\{{extname}}</code></td>
+            <td>{{extname}}</td>
+        </tr>
+        <tr>
+            <td><code>\{{filename}}</code></td>
+            <td>{{filename}}</td>
+        </tr>
+        <tr>
+            <td><code>\{{pagename}}</code></td>
+            <td>{{pagename}}</td>
+        </tr>
+        <tr>
+            <td><code>\{{pageName}}</code></td>
+            <td>{{pageName}}</td>
+        </tr>
+    </tbody>
+</table>
+
+{{>fragment}}

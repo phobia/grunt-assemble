@@ -18,11 +18,11 @@ The you should be ready to run:
 
 ## Running
 
-1. Run the dev task, usually from the project root:
+Step 1: Run the dev task, usually from the project root:
 
     grunt dev
 
-2. Open the browser to the url stated at the end, e.g. "Started connect web server on http://localhost:62251".
+Step 2: Open the browser to [localhost:8181](http://localhost:8181).
 
 ## Developing
 
@@ -34,4 +34,12 @@ Templates are split into 3 parts, each as a subfolder of `src/`:
 2. **Pages** are rendered into the layouts via `{{> body}}`, and results in actual html-pages. E.g. will src/pages/test.html result in build/test.html. 
 3. **Partials** are for reusable fragments. E.g. will partials/teaser.html be usable within pages as `{{> teaser}}`.
 
-The templating language currenly used is (Handlebars)[http://handlebarsjs.com/].
+The templating language currenly used is [Handlebars](http://handlebarsjs.com/).
+
+Pages also accepts meta data in form of YFM. Example of setting page title:
+
+  ---
+  title: Front page
+  ---
+
+[More on built in variables and YFM](http://assemble.io/docs/Built-in-Variables.html).
