@@ -87,17 +87,9 @@ module.exports = function(grunt) {
         connect: {
           server: {
             options: {
-              port: 8000,
+              port: '?', //Assign to an available port
               livereload: true,
-              base: '<%= buildPath %>/',
-              // middleware: function (connect) {
-              //   return [
-              //     require('connect-livereload')(), // <--- here
-              //     checkForDownload,
-              //     mountFolder(connect, '.tmp'),
-              //     mountFolder(connect, 'app')
-              //   ];
-              // }
+              base: '<%= buildPath %>/'
             }
           }
         }

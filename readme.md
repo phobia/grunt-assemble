@@ -22,7 +22,7 @@ The you should be ready to run:
 
     grunt dev
 
-2. Open the browser to [localhost:8080](http://localhost:8000).
+2. Open the browser to the url stated at the end, e.g. "Started connect web server on http://localhost:62251".
 
 ## Developing
 
@@ -33,3 +33,5 @@ Templates are split into 3 parts, each as a subfolder of `src/`:
 1. **Layouts** are the site foundation with html, head and body tags.
 2. **Pages** are rendered into the layouts via `{{> body}}`, and results in actual html-pages. E.g. will src/pages/test.html result in build/test.html. 
 3. **Partials** are for reusable fragments. E.g. will partials/teaser.html be usable within pages as `{{> teaser}}`.
+
+The templating language currenly used is (Handlebars)[http://handlebarsjs.com/].
