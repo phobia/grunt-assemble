@@ -1,4 +1,8 @@
-# Grunt + Assemble base
+# Grunt + Assemble + Browser Sync base
+
+Grunt project for building static web pages using simple templates that supports the use of partials and iterating over data structures such as JSON.
+
+It's configured with a built in web server, live reload and browser sync, which offers synced navigation, scroll, click and form filling.
 
 ## Installing
 
@@ -22,7 +26,7 @@ Step 1: Run the dev task, usually from the project root:
 
     grunt dev
 
-Step 2: Open the browser to [localhost:8181](http://localhost:8181).
+This should start the webserver and open the url in your default browser.
 
 ## Developing
 
@@ -38,8 +42,8 @@ The templating language currenly used is [Handlebars](http://handlebarsjs.com/).
 
 Pages also accepts meta data in form of YFM. Example of setting page title:
 
-  ---
-  title: Front page
-  ---
+    ---
+    title: Front page
+    ---
 
 [More on built in variables and YFM](http://assemble.io/docs/Built-in-Variables.html).
