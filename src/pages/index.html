@@ -4,6 +4,25 @@ title: Front page
 
 <h1>{{title}}</h1>
 
+<h2>List of pages</h2>
+
+<nav>
+    <ul>
+    {{#withSort pages "data.title"}}
+        {{#unless isCurrentPage}}
+        <li><a href="{{pagename}}">{{data.title}}</a></li>
+        {{/unless}}
+    {{/withSort}}
+    </ul>
+</nav>
+
+
+<h2>Example of data feed (and partials)</h2>
+<p>Utilizes data/teasers.json, loops over the data, and reuses a partial (partials/teaser.html) for each item.</p>
+{{#each teasers}}
+    {{>teaser}}
+{{/each}}
+
 <h2>List of available variables in page templates:</h2>
 
 <table>
@@ -42,5 +61,3 @@ title: Front page
         </tr>
     </tbody>
 </table>
-
-{{>fragment}}
