@@ -19,7 +19,7 @@ module.exports = function(grunt) {
             dest: '<%= buildPath %>/'
           }
         },
-        //LESS
+        // LESS
         less: {
           dev: {
             options: {
@@ -44,24 +44,20 @@ module.exports = function(grunt) {
           html: ['<%= buildPath %>/**/*.html']
         },
         copy: {
-          main: {
-            files: [
-              // includes files within path
-              {
-                expand: true,
-                cwd: '<%= srcPath %>/js/',
-                src: ['**'],
-                dest: '<%= buildPath %>/js/',
-              },
-              {
-                expand: true,
-                cwd: '<%= srcPath %>/img/',
-                src: ['**'],
-                dest: '<%= buildPath %>/img/',
-              }
-            ]
+          scripts: {
+            expand: true,
+            cwd: '<%= srcPath %>/js/',
+            src: ['**'],
+            dest: '<%= buildPath %>/js/'
+          },
+          images: {
+            expand: true,
+            cwd: '<%= srcPath %>/img/',
+            src: ['**'],
+            dest: '<%= buildPath %>/img/',
           }
         },
+        // WATCH
         watch: {
           options: {
             livereload: true,
@@ -69,7 +65,11 @@ module.exports = function(grunt) {
           },
           scripts: {
             files: ['<%= srcPath %>/js/**/*.js'],
-            tasks: ['copy']
+            tasks: ['copy:scripts']
+          },
+          images: {
+            files: ['<%= srcPath %>/img/**/*'],
+            tasks: ['copy:images']
           },
           styles: {
             files: ['<%= srcPath %>/less/**/*.less'],
@@ -77,22 +77,26 @@ module.exports = function(grunt) {
           },
           templates: {
             files: [
+              '<%= srcPath %>/data/**/*.{json,yml}',
               '<%= srcPath %>/partials/**/*.html',
               '<%= srcPath %>/layouts/**/*.html',
-              '<%= srcPath %>/*.html'
+              '<%= srcPath %>/pages/*.html'
             ],
             tasks: ['clean:html', 'assemble']
           },
         },
-        connect: {
-          server: {
-            options: {
-              port: '?', //Assign to an available port
-              livereload: true,
-              base: '<%= buildPath %>/'
-            }
+        browser_sync: {
+          bsFiles: {
+              src : '<%= buildPath %>/**/*'
+          },
+          options: {
+              watchTask: true,
+              open: true,
+              server: {
+                baseDir: '<%= buildPath %>/'
+              }
           }
-        }
+        }        
     });
 
     grunt.loadNpmTasks('assemble');
@@ -100,9 +104,9 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-clean');
     grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-contrib-watch');
-    grunt.loadNpmTasks('grunt-contrib-connect');
+    grunt.loadNpmTasks('grunt-browser-sync');
 
     // Default task(s).
-    grunt.registerTask('dev', ['clean', 'assemble', 'less:dev', 'copy', 'connect', 'watch']);
+    grunt.registerTask('dev', ['clean', 'assemble', 'less:dev', 'copy', 'browser_sync', 'watch']);
 
 };
