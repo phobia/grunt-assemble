@@ -8,6 +8,7 @@ module.exports = function(grunt) {
           options: {
             assets: 'assets',
             plugins: ['permalinks'],
+            helpers: '<%= srcPath %>/helpers/helper-*.js',
             partials: ['<%= srcPath %>/partials/**/*.html'],
             layout: ['<%= srcPath %>/layouts/default.html'],
             data: ['<%= srcPath %>/data/*.{json,yml}']
