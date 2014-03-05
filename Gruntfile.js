@@ -1,8 +1,13 @@
 module.exports = function(grunt) {
 
+    require('time-grunt')(grunt);
+
+    require('jit-grunt')(grunt);
+
     grunt.initConfig({
         srcPath: 'src',
         buildPath: 'build',
+
         // ASSEMBLE
         assemble: {
           options: {
@@ -20,6 +25,7 @@ module.exports = function(grunt) {
             dest: '<%= buildPath %>/'
           }
         },
+
         // LESS
         less: {
           dev: {
@@ -40,10 +46,14 @@ module.exports = function(grunt) {
             }
           }
         },
+
+        // CLEAN
         clean: {
           all: ['<%= buildPath %>/**'],
           html: ['<%= buildPath %>/**/*.html']
         },
+
+        // COPY
         copy: {
           scripts: {
             expand: true,
@@ -58,6 +68,7 @@ module.exports = function(grunt) {
             dest: '<%= buildPath %>/img/',
           }
         },
+
         // WATCH
         watch: {
           options: {
@@ -86,6 +97,8 @@ module.exports = function(grunt) {
             tasks: ['clean:html', 'assemble']
           },
         },
+
+        // BROWSER SYNC
         browser_sync: {
           bsFiles: {
               src : '<%= buildPath %>/**/*'
@@ -99,13 +112,6 @@ module.exports = function(grunt) {
           }
         }        
     });
-
-    grunt.loadNpmTasks('assemble');
-    grunt.loadNpmTasks('assemble-less');
-    grunt.loadNpmTasks('grunt-contrib-clean');
-    grunt.loadNpmTasks('grunt-contrib-copy');
-    grunt.loadNpmTasks('grunt-contrib-watch');
-    grunt.loadNpmTasks('grunt-browser-sync');
 
     // Default task(s).
     grunt.registerTask('dev', ['clean', 'assemble', 'less:dev', 'copy', 'browser_sync', 'watch']);
