@@ -13,7 +13,7 @@ module.exports = {
     },
     styles: {
         files: ['<%= srcPath %>/less/**/*.less'],
-        tasks: ['less:dev']
+        tasks: ['less:dev', 'copy:less']
     },
     templates: {
         files: [
@@ -22,6 +22,6 @@ module.exports = {
             '<%= srcPath %>/layouts/**/*.html',
             '<%= srcPath %>/pages/*.html'
         ],
-        tasks: ['clean:html', 'assemble']
+        tasks: ['clean:dev', 'assemble']
     }
 }

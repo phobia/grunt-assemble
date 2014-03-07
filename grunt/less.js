@@ -1,16 +1,18 @@
 module.exports = {
     dev: {
         options: {
-            sourceMap: true
+            sourceMap: true,
+            sourceMapRootpath: '../'
         },
         files: {
             '<%= buildPath %>/css/styles.css': ['<%= srcPath %>/less/styles.less']
         }
     },
-    prod: {
+    dist: {
         options: {
             sourceMap: false,
-            compress: true
+            compress: true,
+            cleancss: true
         },
         files: {
             '<%= buildPath %>/css/styles.css': ['<%= srcPath %>/less/styles.less']

@@ -10,5 +10,11 @@ module.exports = {
         cwd: '<%= srcPath %>/img/',
         src: ['**'],
         dest: '<%= buildPath %>/img/'
+    },
+    less: {
+        expand: true,
+        cwd: '<%= srcPath %>/less/',
+        src: ['**'],
+        dest: '<%= buildPath %>/less/'
     }
 }

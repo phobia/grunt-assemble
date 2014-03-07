@@ -6,10 +6,32 @@ module.exports = function(grunt) {
     require('load-grunt-config')(grunt, {
         config: {
             srcPath: 'src',
-            buildPath: 'build'
+            buildPath: null, //set by build task to one of targetPath
+            targetPath: {
+                dev: 'tmp',
+                dist: 'build'
+            }
         }
     });
 
-    grunt.registerTask('dev', ['clean', 'assemble', 'less:dev', 'copy', 'browser_sync', 'watch']);
+    grunt.registerTask('serve:dev', ['build:dev', 'browser_sync', 'watch']);
+    grunt.registerTask('serve:dist', ['build:dist', 'connect']);
+
+    /**
+     * Build
+     *
+     * Usage:
+     * grunt build:dev
+     * grunt build:dist
+     *
+     */
+    grunt.registerTask('build', function(target) {
+        if (!target) {
+            return grunt.warn('Build target must be specified: build:dev or build:dist.');
+        }
+        grunt.config('buildPath', grunt.config('targetPath.' + target));
+        grunt.task.run(['clean', 'assemble', 'less:' + target, 'copy']);
+    });
+
 
 };

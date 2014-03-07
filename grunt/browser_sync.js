@@ -4,8 +4,7 @@ module.exports = {
     },
     options: {
         watchTask: true,
-            open: true,
-            server: {
+        server: {
             baseDir: '<%= buildPath %>/'
         }
     }

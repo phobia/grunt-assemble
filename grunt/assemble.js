@@ -7,7 +7,7 @@ module.exports = {
         layout: ['<%= srcPath %>/layouts/default.html'],
         data: ['<%= srcPath %>/data/*.{json,yml}']
     },
-    pages: {
+    all: {
         expand: true,
         cwd: '<%= srcPath %>/pages/',
         src: ['*.html'],
