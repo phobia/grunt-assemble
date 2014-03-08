@@ -1,4 +1,4 @@
-module.exports = function(grunt) {
+module.exports = function (grunt) {
 
     require('time-grunt')(grunt);
     require('jit-grunt')(grunt);
@@ -14,7 +14,7 @@ module.exports = function(grunt) {
         }
     });
 
-    grunt.registerTask('serve:dev', ['build:dev', 'browser_sync', 'watch']);
+    grunt.registerTask('serve:dev', ['build:dev', 'symlink:source', 'browser_sync', 'watch']);
     grunt.registerTask('serve:dist', ['build:dist', 'connect']);
 
     /**
