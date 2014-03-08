@@ -2,7 +2,7 @@ module.exports = {
     dev: {
         options: {
             sourceMap: true,
-            sourceMapRootpath: '../'
+            sourceMapRootpath: '/'
         },
         files: {
             '<%= buildPath %>/css/styles.css': ['<%= srcPath %>/less/styles.less']
