@@ -24,7 +24,7 @@ The you should be ready to run:
 
 Step 1: Run the dev task, usually from the project root:
 
-    grunt dev
+    grunt serve:dev
 
 This should start the webserver and open the url in your default browser.
 
